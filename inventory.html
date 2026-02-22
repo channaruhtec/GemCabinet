@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory | Gem Cabinet</title>
+    <meta name="description"
+        content="Browse our exclusive collection of rough sapphires, spinels, and garnets from Sri Lanka.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gem: {
+                            dark: '#0f172a', // Slate 900
+                            darker: '#020617', // Slate 950
+                            gold: '#d4af37', // Metallic Gold
+                            goldHover: '#b8962e',
+                            accent: '#1e293b', // Slate 800
+                        },
+                        fontFamily: {
+                            serif: ['"Playfair Display"', 'serif'],
+                            sans: ['Inter', 'sans-serif'],
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar for dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Gold text gradient effect for some headlines */
+        .text-gradient-gold {
+            background: linear-gradient(to right, #fcd34d, #d4af37, #f59e0b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body class="bg-gem-darker text-gray-200 font-sans antialiased selection:bg-gem-gold selection:text-gem-darker">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 left-0 bg-gem-dark/95 backdrop-blur-md border-b border-gem-accent transition-all duration-300"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 lg:h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex flex-col items-start group">
+                        <span
+                            class="font-serif text-2xl lg:text-3xl font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-gem-gold via-yellow-200 to-gem-gold filter drop-shadow-sm">
+                            GEM CABINET
+                        </span>
+                        <span
+                            class="text-[0.6rem] text-gray-400 uppercase tracking-[0.3em] font-sans group-hover:text-white transition-colors">
+                            from the mines of gemcity
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-gray-300 hover:text-gem-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="inventory.html"
+                            class="text-white border-b-2 border-gem-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Inventory</a>
+                        <a href="feedback.html"
+                            class="text-gray-300 hover:text-gem-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Feedback</a>
+                        <a href="about.html"
+                            class="text-gray-300 hover:text-gem-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">About
+                            Ceylon</a>
+                        <a href="contact.html"
+                            class="bg-gem-gold text-gem-darker hover:bg-white hover:text-gem-darker px-5 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105 shadow-lg shadow-gem-gold/20 mr-4">Contact</a>
+
+
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gem-accent focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false"
+                        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-gem-dark border-t border-gem-accent" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="inventory.html"
+                    class="text-white font-bold block px-3 py-2 rounded-md text-base font-medium">Inventory</a>
+                <a href="feedback.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Feedback</a>
+                <a href="about.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="contact.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+
+            </div>
+    </nav>
+
+
+
+    <!-- Inventory Section -->
+    <!-- Added pt-32 (padding-top: 8rem = 128px) to account for fixed navbar on desktop -->
+    <section id="inventory" class="pt-32 pb-20 bg-gem-darker relative min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 mt-8">
+                <h2 class="text-4xl font-serif font-bold text-white mb-4">Current Inventory</h2>
+                <div class="w-24 h-1 bg-gem-gold mx-auto mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">Explore our exclusive selection of untreated, natural rough
+                    stones.</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="sticky top-20 lg:top-24 z-40 bg-gem-darker/95 backdrop-blur-sm py-4 mb-10 border-b border-gem-accent/50 shadow-2xl"
+                id="filter-bar">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+
+                    <!-- Search/Count -->
+                    <div class="text-gray-400 text-sm font-medium">
+                        Showing <span id="gem-count" class="text-white">0</span> stones
+                    </div>
+
+                    <!-- Filter Controls -->
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <!-- Type Filter -->
+                        <div class="relative group">
+                            <select id="filter-type"
+                                class="appearance-none bg-gem-accent text-white py-2 px-4 pr-8 rounded border border-gray-700 focus:outline-none focus:border-gem-gold cursor-pointer hover:bg-gray-800 transition-colors">
+                                <option value="all">All Types</option>
+                                <option value="Sapphire">Sapphire</option>
+                                <option value="Spinel">Spinel</option>
+                                <option value="Garnet">Garnet</option>
+                                <option value="Tourmaline">Tourmaline</option>
+                            </select>
+                            <div
+                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gem-gold">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Color Filter -->
+                        <div class="relative group">
+                            <select id="filter-color"
+                                class="appearance-none bg-gem-accent text-white py-2 px-4 pr-8 rounded border border-gray-700 focus:outline-none focus:border-gem-gold cursor-pointer hover:bg-gray-800 transition-colors">
+                                <option value="all">All Colors</option>
+                                <option value="Blue">Blue</option>
+                                <option value="Pink">Pink</option>
+                                <option value="Yellow">Yellow</option>
+                                <option value="Red">Red</option>
+                                <option value="Green">Green</option>
+                                <option value="Purple">Purple</option>
+                            </select>
+                            <div
+                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gem-gold">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Price Sort (Optional but nice) -->
+                        <div class="relative group">
+                            <select id="sort-price"
+                                class="appearance-none bg-gem-accent text-white py-2 px-4 pr-8 rounded border border-gray-700 focus:outline-none focus:border-gem-gold cursor-pointer hover:bg-gray-800 transition-colors">
+                                <option value="default">Sort by</option>
+                                <option value="low-high">Price: Low to High</option>
+                                <option value="high-low">Price: High to Low</option>
+                            </select>
+                            <div
+                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gem-gold">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="gem-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Cards will be injected here by JS -->
+            </div>
+
+            <!-- No Results Message -->
+            <div id="no-results" class="hidden text-center py-20">
+                <p class="text-gray-400 text-lg">No gems found matching your criteria.</p>
+                <button onclick="resetFilters()" class="mt-4 text-gem-gold hover:underline">Clear Filters</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8 border-t border-gem-accent">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-600 text-sm">
+            <p>&copy; 2024 Gem Cabinet. Sri Lanka. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Load Gem Data -->
+    <script src="js/gems.js"></script>
+
+    <!-- Gem Detail Modal -->
+    <div id="gemModal"
+        class="fixed inset-0 z-[110] hidden bg-gem-darker/90 backdrop-blur-xl flex items-center justify-center p-4">
+        <div
+            class="bg-gem-dark border border-gem-accent max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-sm relative shadow-2xl">
+            <button onclick="closeGemModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white z-10 bg-gem-darker/50 p-2 rounded-full">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 h-64 md:h-auto bg-black">
+                    <img id="modalGemImage" src="" alt="" class="w-full h-full object-contain">
+                </div>
+                <div class="md:w-1/2 p-8">
+                    <span id="modalGemType"
+                        class="text-gem-gold text-xs uppercase tracking-[0.3em] font-bold mb-2 block"></span>
+                    <h2 id="modalGemName" class="text-3xl font-serif font-bold text-white mb-4"></h2>
+                    <div class="space-y-4 text-gray-300 mb-8">
+                        <div class="flex justify-between border-b border-gray-800 pb-2">
+                            <span>Weight:</span>
+                            <span id="modalGemWeight" class="text-white font-medium"></span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-800 pb-2">
+                            <span>Origin:</span>
+                            <span id="modalGemOrigin" class="text-white font-medium"></span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-800 pb-2">
+                            <span>Color:</span>
+                            <span id="modalGemColor" class="text-white font-medium"></span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-800 pb-2">
+                            <span>Price:</span>
+                            <span id="modalGemPrice" class="text-gem-gold font-bold text-xl"></span>
+                        </div>
+                    </div>
+                    <a id="modalWhatsAppBtn" href="#" target="_blank"
+                        class="w-full inline-flex items-center justify-center bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 px-6 rounded-none transition-all duration-300 uppercase tracking-widest text-sm shadow-lg shadow-green-500/10">
+                        <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.58-1.76-1.752-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413" />
+                        </svg>
+                        Ask about this gemstone
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Use the centralized 'gems' array from js/gems.js
+
+        // Modal Logic
+        function openGemModal(id) {
+            const gem = gems.find(g => g.id === id);
+            if (!gem) return;
+
+            document.getElementById('modalGemImage').src = gem.image;
+            document.getElementById('modalGemImage').alt = gem.name;
+            document.getElementById('modalGemImage').className = `w-full h-full object-contain ${gem.isSold ? 'opacity-40 grayscale' : ''}`;
+
+            document.getElementById('modalGemType').textContent = gem.type;
+            document.getElementById('modalGemName').textContent = gem.name;
+            document.getElementById('modalGemWeight').textContent = gem.weight + ' ct';
+            document.getElementById('modalGemOrigin').textContent = gem.origin;
+            document.getElementById('modalGemColor').textContent = gem.color;
+            document.getElementById('modalGemPrice').textContent = '$' + gem.price.toLocaleString();
+
+            const waBtn = document.getElementById('modalWhatsAppBtn');
+            if (gem.isSold) {
+                waBtn.href = "#";
+                waBtn.classList.add('bg-gray-700', 'cursor-not-allowed', 'pointer-events-none');
+                waBtn.classList.remove('bg-[#25D366]', 'hover:bg-[#128C7E]');
+                waBtn.innerHTML = `
+                    <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    </svg>
+                    Sold - Not Available
+                `;
+            } else {
+                waBtn.classList.remove('bg-gray-700', 'cursor-not-allowed', 'pointer-events-none');
+                waBtn.classList.add('bg-[#25D366]', 'hover:bg-[#128C7E]');
+                const message = encodeURIComponent(`Hi, I'm interested in the ${gem.name} I saw on Gem Cabinet. Could you provide more details?`);
+                waBtn.href = `https://wa.me/94772527143?text=${message}`;
+                waBtn.innerHTML = `
+                    <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.58-1.76-1.752-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413" />
+                    </svg>
+                    Ask about this gemstone
+                `;
+            }
+
+            document.getElementById('gemModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+
+        function closeGemModal() {
+            document.getElementById('gemModal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore scroll
+        }
+
+        // Close modal on click outside
+        document.getElementById('gemModal').addEventListener('click', (e) => {
+            if (e.target.id === 'gemModal') closeGemModal();
+        });
+
+        // State
+        let currentType = 'all';
+        let currentColor = 'all';
+        let sortMode = 'default';
+
+        // Elements
+        const grid = document.getElementById('gem-grid');
+        const countSpan = document.getElementById('gem-count');
+        const noResults = document.getElementById('no-results');
+        const filterType = document.getElementById('filter-type');
+        const filterColor = document.getElementById('filter-color');
+        const sortPrice = document.getElementById('sort-price');
+
+        // Render Function
+        function renderGems(data) {
+            grid.innerHTML = '';
+            countSpan.textContent = data.length;
+
+            if (data.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            data.forEach(gem => {
+                const card = document.createElement('div');
+                card.className = 'group bg-gem-accent rounded-sm shadow-xl overflow-hidden hover:shadow-2xl hover:shadow-gem-gold/10 transition-all duration-300 border border-gray-800 hover:border-gem-gold/50';
+
+                card.innerHTML = `
+                    <div class="relative h-64 overflow-hidden cursor-pointer" onclick="openGemModal(${gem.id})">
+                        <img src="${gem.image}" alt="${gem.name}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ${gem.isSold ? 'opacity-50 grayscale' : ''}">
+                        ${gem.isSold ? `
+                            <div class="absolute inset-0 flex items-center justify-center bg-black/60">
+                                <span class="bg-red-600 text-white font-bold px-6 py-2 rotate-12 uppercase tracking-[0.2em] shadow-xl border-2 border-white/20">Sold Out</span>
+                            </div>
+                        ` : `
+                            <div class="absolute top-0 right-0 bg-gem-gold text-gem-darker text-xs font-bold px-3 py-1 m-2 uppercase tracking-wide">
+                                ${gem.type}
+                            </div>
+                        `}
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-white font-serif text-lg font-bold hover:text-gem-gold transition-colors line-clamp-1 cursor-pointer" onclick="openGemModal(${gem.id})">
+                                ${gem.name}
+                                ${gem.isSold ? '<span class="text-[10px] text-red-500 font-bold uppercase ml-2 italic">[Sold]</span>' : ''}
+                            </h3>
+                        </div>
+                        <div class="space-y-2 text-sm text-gray-400 mb-4">
+                            <div class="flex justify-between border-b border-gray-700 pb-1">
+                                <span>Weight:</span>
+                                <span class="text-gray-200">${gem.weight} ct</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-700 pb-1">
+                                <span>Origin:</span>
+                                <span class="text-gray-200">${gem.origin}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Color:</span>
+                                <span class="text-gray-200">${gem.color}</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center mt-4 pt-4 border-t border-gray-700">
+                            <span class="text-2xl font-serif text-gem-gold font-bold">$${gem.price.toLocaleString()}</span>
+                            <div class="flex items-center gap-2">
+                                <button onclick="toggleLike(${gem.id})" id="like-btn-${gem.id}" class="transition-all duration-300 flex items-center gap-2 group/like focus:outline-none">
+                                    <span id="like-count-${gem.id}" class="text-gray-400 group-hover/like:text-gem-gold text-[10px] font-medium transition-colors">${gem.likes}</span>
+                                    <svg id="heart-icon-${gem.id}" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 stroke-gray-400 fill-transparent group-hover/like:stroke-gem-gold transition-all duration-300" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.092-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                    </svg>
+                                </button>
+                                <a href="contact.html?gem=${gem.id}" class="bg-gem-gold hover:bg-yellow-500 text-gem-darker text-[9px] font-bold px-4 py-2 rounded-sm transition-all duration-300 uppercase tracking-widest shadow-lg shadow-gem-gold/10">
+                                    Inquire Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+                updateHeartState(gem.id);
+            });
+        }
+
+        // Like/Unlike Logic
+        function toggleLike(id) {
+            const likedGems = JSON.parse(localStorage.getItem('likedGems') || '[]');
+            const isLiked = likedGems.includes(id);
+            const gem = gems.find(g => g.id === id);
+
+            if (!gem) return;
+
+            if (isLiked) {
+                // Unlike
+                const index = likedGems.indexOf(id);
+                likedGems.splice(index, 1);
+                gem.likes--;
+            } else {
+                // Like
+                likedGems.push(id);
+                gem.likes++;
+            }
+
+            localStorage.setItem('likedGems', JSON.stringify(likedGems));
+            renderGems(currentFilteredGems); // Re-render with current filters to keep UI consistent
+        }
+
+
+
+        function updateHeartState(id) {
+            const likedGems = JSON.parse(localStorage.getItem('likedGems') || '[]');
+            const icon = document.getElementById(`heart-icon-${id}`);
+            const count = document.getElementById(`like-count-${id}`);
+
+            if (likedGems.includes(id)) {
+                icon.classList.remove('stroke-gray-400', 'fill-transparent');
+                icon.classList.add('stroke-gem-gold', 'fill-gem-gold');
+                count.classList.remove('text-gray-400');
+                count.classList.add('text-gem-gold');
+            }
+        }
+
+        let currentFilteredGems = [...gems];
+
+        function filterAndSortGems() {
+            currentFilteredGems = gems.filter(gem => {
+                const matchType = currentType === 'all' || gem.type === currentType;
+                const matchColor = currentColor === 'all' || gem.color === currentColor;
+                return matchType && matchColor;
+            });
+
+            if (sortMode === 'low-high') {
+                currentFilteredGems.sort((a, b) => a.price - b.price);
+            } else if (sortMode === 'high-low') {
+                currentFilteredGems.sort((a, b) => b.price - a.price);
+            }
+
+            renderGems(currentFilteredGems);
+        }
+
+        function resetFilters() {
+            currentType = 'all';
+            currentColor = 'all';
+            sortMode = 'default';
+            filterType.value = 'all';
+            filterColor.value = 'all';
+            sortPrice.value = 'default';
+            filterAndSortGems();
+        }
+
+        // Event Listeners
+        filterType.addEventListener('change', (e) => {
+            currentType = e.target.value;
+            filterAndSortGems();
+        });
+
+        filterColor.addEventListener('change', (e) => {
+            currentColor = e.target.value;
+            filterAndSortGems();
+        });
+
+        sortPrice.addEventListener('change', (e) => {
+            sortMode = e.target.value;
+            filterAndSortGems();
+        });
+
+        // Initial Render
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Gem Cabinet Initialized");
+            renderGems(gems);
+        });
+
+    </script>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/94772527143" target="_blank"
+        class="fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 group flex items-center justify-center">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.58-1.76-1.752-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413" />
+        </svg>
+        <span
+            class="absolute right-full mr-4 bg-gem-dark text-white px-4 py-2 rounded-md text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-gem-accent shadow-xl pointer-events-none">
+            Chat on WhatsApp
+        </span>
+    </a>
+</body>
+
+</html>
