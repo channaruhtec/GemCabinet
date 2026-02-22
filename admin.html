@@ -361,12 +361,12 @@
                 tr.innerHTML = `
                     <td class="p-4 relative">
                         <img src="${gem.image}" class="h-12 w-12 object-cover rounded bg-gray-800 ${gem.isSold ? 'opacity-30 grayscale' : ''}">
-                        ${gem.isSold ? '<span class="absolute top-4 left-4 bg-red-600 text-[8px] text-white px-1 font-bold">SOLD</span>' : ''}
+                        ${gem.isSold ? '<span class="absolute top-4 left-4 border border-gem-gold/50 bg-gem-dark/80 text-gem-gold text-[6px] px-1 font-bold uppercase tracking-widest">Sold</span>' : ''}
                     </td>
                     <td class="p-4">
                         <div class="font-bold text-white flex items-center gap-2">
                             ${gem.name}
-                            ${gem.isSold ? '<span class="text-[10px] text-red-500 font-bold uppercase italic">[Sold]</span>' : ''}
+                            ${gem.isSold ? '<span class="text-[10px] text-gem-gold font-bold uppercase italic">[Sold]</span>' : ''}
                         </div>
                         <div class="text-gray-400 text-xs">${gem.weight} ct | ${gem.type}</div>
                     </td>
